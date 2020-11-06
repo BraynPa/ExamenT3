@@ -1,0 +1,60 @@
+﻿<a href="/app/crearR">Crear rutina</a>
+<br />
+<label>
+    Rutinas Creadas
+</label>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in ViewBag.Rutinas)
+        {
+            if (item.Nivel == 0)
+            {
+                i++;
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.Nombre</td>
+                    <td><a href="/app/AsignarN?id=@item.Id">Asignar Nivel</a></td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+<br />
+<label>
+    Rutinas  de @User.Claims.FirstOrDefault().Value
+</label>
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Nivel</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int inc = 0;}
+        @foreach (var item in ViewBag.Rutinas)
+        {
+            if (item.Nivel != 0)
+            {
+                inc++;
+        <tr>
+            <th scope="row">@i</th>
+            <td>@item.Nombre</td>
+            <td>@item.Nivel</td>
+            <td><a href="/app/ejercicioL?id=@item.Id">Ver</a></td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>

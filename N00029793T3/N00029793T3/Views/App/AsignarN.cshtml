@@ -1,0 +1,28 @@
+﻿
+@{var rut = (Rutina)Model; }
+<html>
+<head>
+    <title>Asignar</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Asignando Nivel. . .</h1>
+        <form action="/app/asignarN" method="post">
+
+            <label>Nombre</label>
+            <input type="hidden" name="Id" value="@rut.Id" />
+            <input type="hidden" name="Nombre" value="@rut.Nombre" />
+            <input type="hidden" name="IdUsuario" value="@rut.IdUsuario" />
+            <input type="hidden" name="FechaCreacion" value="@rut.FechaCreacion" />
+            <label>Tipo</label>
+            <select type="number" name="Nivel">
+                <option type="number" value="1">Básico</option>
+                <option type="number" value="2">Intermedio</option>
+                <option type="number" value="3">Avanzado</option>
+            </select>
+            <button class="btn btn-success">Crear</button>
+
+        </form>
+    </div>
+</body>
+</html>

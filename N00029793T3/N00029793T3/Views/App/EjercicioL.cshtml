@@ -1,0 +1,26 @@
+﻿<label>
+    Rutina de @User.Claims.FirstOrDefault().Value
+</label>
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Video</th>
+            <th scope="col">Tiempo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int inc = 0;}
+        @foreach (var item in ViewBag.Lista)
+        {
+         inc++;
+        <tr>
+            <th scope="row">@inc</th>
+            <td>@item.ejercicio.Nombre</td>
+            <td><a href="@item.ejercicio.LinkYoutube" target="_blank">@item.ejercicio.LinkYoutube</a></td>
+            <td>@item.Time</td>
+        </tr>
+        }
+    </tbody>
+</table>
